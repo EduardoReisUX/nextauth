@@ -55,7 +55,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
         path: "/", // every page has access to this cookie
       });
 
-      setCookie(undefined, "nextauth.refreshToken", refreshToken);
+      setCookie(undefined, "nextauth.refreshToken", refreshToken, {
+        maxAge: 60 * 60 * 24 * 30, // 30 days
+        path: "/", // every page has access to this cookie
+      });
 
       setUser({
         email,
