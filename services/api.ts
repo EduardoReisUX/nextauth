@@ -5,10 +5,11 @@ let cookies = parseCookies();
 
 export const api = axios.create({
   baseURL: "http://localhost:3333",
-  headers: {
-    Authorization: `Bearer ${cookies["nextauth.token"]}`,
-  },
 });
+
+api.defaults.headers.common[
+  "Authorization"
+] = `Bearer ${cookies["nextauth.token"]}`;
 
 // AFTER back-end RESPONSE, on fulfill it will return the response
 // on reject it will renovate the token if it's expired
