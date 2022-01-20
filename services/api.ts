@@ -44,7 +44,7 @@ api.interceptors.response.use(
               }
             );
 
-            api.defaults.headers["Authorization"] = `Bearer ${token}`;
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
           });
       } else {
         // log out the user
