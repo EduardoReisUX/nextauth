@@ -45,6 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         .get("/me")
         .then((response) => {
           const { email, permissions, roles } = response.data;
+
           setUser({ email, permissions, roles });
         })
         .catch(() => {
